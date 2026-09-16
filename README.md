@@ -12,6 +12,7 @@ css/styles.css    Design-tokens + all styling
 js/products.js    Produktdata — rediger her for å legge til/endre produkter
 js/app.js         Søk, kategorifilter, mobilmeny
 fonts/            Oswald + Barlow (woff2)
+images/           Produktbilder (settes via `img` i products.js)
 ```
 
 ## Kjør lokalt

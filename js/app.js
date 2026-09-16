@@ -38,10 +38,15 @@
       : "";
     return (
       '<article class="card">' +
-        '<a class="card__tile" href="' + esc(p.href) + '" target="_blank" rel="noopener" aria-label="' + esc(p.name) + '">' +
-          '<span class="card__tile-brand">' + esc(p.brand) + "</span>" +
-          '<span class="card__code">' + esc(p.code) + "</span>" +
-        "</a>" +
+        (p.img
+          ? '<a class="card__tile card__tile--photo" href="' + esc(p.href) + '" target="_blank" rel="noopener" aria-label="' + esc(p.name) + '">' +
+              '<img class="card__img" src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async">' +
+              '<span class="card__caption"><span class="card__tile-brand">' + esc(p.brand) + '</span><span class="card__code card__code--sm">' + esc(p.code) + "</span></span>" +
+            "</a>"
+          : '<a class="card__tile" href="' + esc(p.href) + '" target="_blank" rel="noopener" aria-label="' + esc(p.name) + '">' +
+              '<span class="card__tile-brand">' + esc(p.brand) + "</span>" +
+              '<span class="card__code">' + esc(p.code) + "</span>" +
+            "</a>") +
         '<div class="card__body">' +
           '<div class="card__meta">' +
             '<span class="card__brand">' + esc(p.brand) + "</span>" +

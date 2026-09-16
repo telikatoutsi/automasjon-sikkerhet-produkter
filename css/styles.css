@@ -233,6 +233,21 @@ button { font: inherit; }
   font-family: var(--font-display); text-transform: uppercase; font-size: clamp(26px, 3.4vw, 38px);
   line-height: 1; letter-spacing: -0.01em; margin-top: 4px;
 }
+.card__tile--photo {
+  position: relative; justify-content: flex-start; padding: 0; background: #fff;
+  aspect-ratio: 16 / 9; overflow: hidden;
+}
+.card__img {
+  width: 100%; height: 100%; object-fit: contain; object-position: center;
+  padding: 18px 20px 34px;
+  transition: transform 560ms var(--ease-soft);
+}
+.card:hover .card__img { transform: scale(1.04); }
+.card__caption {
+  position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: baseline; gap: 10px;
+  padding: 8px 20px; background: linear-gradient(to top, rgba(255,255,255,0.96), rgba(255,255,255,0));
+}
+.card__code--sm { font-size: 15px; margin-top: 0; letter-spacing: 0.02em; color: var(--ns-ink); }
 .card__body { padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .card__meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .card__brand { font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; font-size: 10px; color: var(--text-accent); }
