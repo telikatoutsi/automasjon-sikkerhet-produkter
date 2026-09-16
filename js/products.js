@@ -54,7 +54,7 @@ window.AS_PRODUCTS = [
   { name: "Tilbehør og tilpasningsutstyr", code: "TILBEHØR", img: "images/tilbehor.png", brand: "ABB", cat: "Tilbehør",
     href: "https://new.abb.com/low-voltage/products/safety-products/accessories",
     desc: "Kabler, kontakter, braketter og ekstrautstyr for sikkerhetsproduktene fra ABB Jokab." },
-  { name: "Inxpect sikkerhetsradar", code: "RADAR", img: "", brand: "Inxpect", cat: "Andre fabrikater",
+  { name: "Inxpect sikkerhetsradar", code: "RADAR", img: "images/radar.png", brand: "Inxpect", cat: "Andre fabrikater",
     href: "https://www.inxpect.com/en/",
     desc: "Eneste radar sertifisert for maskinsikkerhet. Overvåker farlige områder med kroppsdeteksjon og beskyttelse." },
   { name: "Nordic Door rulleporter", code: "PORT", img: "images/port.jpg", brand: "Nordic Door", cat: "Fysisk sikring",
