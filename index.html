@@ -44,8 +44,15 @@
   </header>
 
   <section class="hero">
-    <img class="hero__bg" src="images/hero-robotcelle.jpg" alt="" fetchpriority="high" decoding="async">
+    <img class="hero__bg ns-drift" src="images/hero-robotcelle.jpg" alt="" fetchpriority="high" decoding="async">
     <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="radar-fx" aria-hidden="true">
+      <div class="radar-fx__sweep ns-sweep"></div>
+      <div class="radar-fx__ring ns-ring"></div>
+      <div class="radar-fx__ring ns-ring" style="animation-delay: 2.33s"></div>
+      <div class="radar-fx__ring radar-fx__ring--red ns-ring" style="animation-delay: 4.66s"></div>
+      <div class="radar-fx__dot"></div>
+    </div>
     <div class="container hero__grid">
       <div class="hero__copy">
         <span class="eyebrow">Produktkatalog</span>
@@ -57,7 +64,7 @@
         </div>
       </div>
       <div class="hero__figures">
-        <div><div class="figure">16</div><div class="label">Produktfamilier</div></div>
+        <div><div class="figure">17</div><div class="label">Produktfamilier</div></div>
         <div><div class="figure">5</div><div class="label">Fabrikater</div></div>
         <div><div class="figure">1</div><div class="label">Kontaktpunkt</div></div>
       </div>
@@ -65,12 +72,13 @@
   </section>
 
   <main id="produkter" class="container products">
+    <div class="products__grid-bg" aria-hidden="true"></div>
     <div class="products__head">
       <div>
         <span class="eyebrow eyebrow--accent">Utvalget</span>
         <h2 class="products__title">Finn riktig produkt</h2>
       </div>
-      <p class="products__intro">Søk eller filtrer på kategori. Klikk på et kort for produsentens produktside — brosjyrer og kataloger lastes ned direkte.</p>
+      <p class="products__intro">Søk eller filtrer på kategori. Åpne «Detaljer» for teknisk oversikt, brosjyre og tilbud.</p>
     </div>
 
     <div class="toolbar">
@@ -99,7 +107,8 @@
           <a class="btn btn--outline-light" href="https://www.inxpect.com/en/products/" target="_blank" rel="noopener">Se radarsensorene</a>
         </div>
         <figure class="radar__photo">
-          <img src="images/radar-anlegg.jpg" alt="Industrianlegg med radarovervåket sone" loading="lazy" decoding="async">
+          <img class="ns-drift" src="images/radar-anlegg.jpg" alt="Industrianlegg med radarovervåket sone" loading="lazy" decoding="async">
+          <div class="radar__scan ns-scan" aria-hidden="true"></div>
         </figure>
       </div>
       <div class="immune">
@@ -183,6 +192,8 @@
     </div>
     <div class="container site-footer__legal">© <span id="year">2026</span> Automasjon &amp; Sikkerhet AS — alle rettigheter reservert.</div>
   </footer>
+
+  <div id="detail"></div>
 
   <script src="js/products.js"></script>
   <script src="js/app.js"></script>

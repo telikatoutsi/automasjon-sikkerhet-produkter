@@ -3,6 +3,7 @@
 
   var CATS = window.AS_CATEGORIES;
   var PRODUCTS = window.AS_PRODUCTS;
+  var SPECS = window.AS_SPECS || { _default: [] };
 
   var $search = document.getElementById("search");
   var $filters = document.getElementById("filters");
@@ -11,8 +12,9 @@
   var $result = document.getElementById("result-label");
   var $toggle = document.getElementById("menu-toggle");
   var $menu = document.getElementById("mobile-menu");
+  var $detail = document.getElementById("detail");
 
-  var state = { cat: "Alle", query: "" };
+  var state = { cat: "Alle", query: "", openName: null };
 
   // Restore category from URL hash (#produkter?kat=Tilbehør) so filters are shareable.
   var params = new URLSearchParams(window.location.search);
@@ -55,12 +57,64 @@
           '<h3 class="card__title"><a href="' + esc(p.href) + '" target="_blank" rel="noopener">' + esc(p.name) + "</a></h3>" +
           '<p class="card__desc">' + esc(p.desc) + "</p>" +
           '<div class="card__links">' +
-            '<a class="link-ul" href="' + esc(p.href) + '" target="_blank" rel="noopener">Produktside</a>' + doc +
+            '<button type="button" class="link-ul link-ul--btn" data-open="' + esc(p.name) + '">Detaljer</button>' + doc +
           "</div>" +
         "</div>" +
       "</article>"
     );
   }
+
+  function detailHTML(p) {
+    var specs = SPECS[p.name] || SPECS._default;
+    var img = p.img
+      ? '<div class="drawer__img"><img src="' + esc(p.img) + '" alt="' + esc(p.name) + '"></div>'
+      : "";
+    var doc = p.doc
+      ? '<a class="btn btn--ghost" href="' + esc(p.docHref) + '" target="_blank" rel="noopener"><span>' + esc(p.doc) + "</span></a>"
+      : "";
+    return (
+      '<div class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">' +
+        '<div class="drawer__backdrop" data-close></div>' +
+        '<aside class="drawer__panel">' +
+          '<div class="drawer__head">' +
+            "<div>" +
+              '<div class="drawer__meta">' + esc(p.brand) + " · " + esc(p.cat) + "</div>" +
+              '<h2 class="drawer__title" id="drawer-title">' + esc(p.name) + "</h2>" +
+            "</div>" +
+            '<button type="button" class="drawer__close" data-close aria-label="Lukk">×</button>' +
+          "</div>" +
+          '<div class="drawer__body">' +
+            img +
+            '<p class="drawer__desc">' + esc(p.desc) + "</p>" +
+            '<div class="drawer__label">Teknisk</div>' +
+            '<dl class="specs">' +
+              specs.map(function (x) {
+                return '<div class="specs__row"><dt>' + esc(x.k) + "</dt><dd>" + esc(x.v) + "</dd></div>";
+              }).join("") +
+            "</dl>" +
+            '<div class="drawer__actions">' +
+              '<a class="btn btn--accent" href="mailto:post@automasjonsikkerhet.no?subject=' + encodeURIComponent("Tilbud: " + p.name) + '">Be om tilbud på dette</a>' +
+              '<a class="btn btn--outline" href="' + esc(p.href) + '" target="_blank" rel="noopener">Produsentens produktside</a>' +
+              doc +
+            "</div>" +
+            '<p class="drawer__foot">Usikker på om dette er riktig produkt? Ring 918 27 371 — du får svar fra en som skal levere jobben.</p>' +
+          "</div>" +
+        "</aside>" +
+      "</div>"
+    );
+  }
+
+  function renderDetail() {
+    var p = state.openName && PRODUCTS.filter(function (x) { return x.name === state.openName; })[0];
+    $detail.innerHTML = p ? detailHTML(p) : "";
+    if (p) {
+      var close = $detail.querySelector(".drawer__close");
+      if (close) close.focus();
+    }
+  }
+
+  function openDetail(name) { state.openName = name; renderDetail(); }
+  function closeDetail() { state.openName = null; renderDetail(); }
 
   function render() {
     var q = state.query.trim().toLowerCase();
@@ -76,6 +130,17 @@
       visible.length + (visible.length === 1 ? " produkt" : " produkter") + (state.cat === "Alle" ? "" : " · " + state.cat);
     renderFilters();
   }
+
+  $grid.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-open]");
+    if (btn) openDetail(btn.getAttribute("data-open"));
+  });
+  $detail.addEventListener("click", function (e) {
+    if (e.target.closest("[data-close]")) closeDetail();
+  });
+  window.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && state.openName) closeDetail();
+  });
 
   $filters.addEventListener("click", function (e) {
     var btn = e.target.closest("[data-cat]");

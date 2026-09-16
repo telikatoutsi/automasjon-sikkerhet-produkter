@@ -65,3 +65,44 @@ window.AS_PRODUCTS = [
     desc: "Kompakt laserscanner med 20 m deteksjon og 5 m sikkerhetssone. Master/slave uten ekstra kontroller, delbart deteksjonsområde.",
     doc: "Mer informasjon", docHref: "https://automasjonsikkerhet.no/kontakt-oss/" }
 ];
+
+// Tekniske spesifikasjoner vist i «Detaljer»-panelet. Produkter uten egen oppføring bruker _default.
+window.AS_SPECS = {
+  _default: [
+    { k: "Standard", v: "EN ISO 13849-1 / EN 62061" },
+    { k: "Bruksområde", v: "Maskin- og anleggssikring" },
+    { k: "Leveranse", v: "Utvalg, montasje og idriftsettelse" }
+  ],
+  "PLUTO sikkerhets-PLS": [
+    { k: "Ytelsesnivå", v: "PL e / SIL 3" },
+    { k: "Programmering", v: "Pluto Manager, ferdige funksjonsblokker" },
+    { k: "Buss", v: "Pluto-bus, opptil 32 enheter" },
+    { k: "Montasje", v: "DIN-skinne i tavle" }
+  ],
+  "VITAL sikkerhetskontroller": [
+    { k: "Ytelsesnivå", v: "PL e / SIL 3" },
+    { k: "Kapasitet", v: "Opptil 30 sikkerhetsenheter i serie" },
+    { k: "Erstatter", v: "Flere separate sikkerhetsreleer" }
+  ],
+  "ORION lysbom og lysgitter": [
+    { k: "Type", v: "Lysgitter og lysbom, type 4" },
+    { k: "Oppløsning", v: "14 / 30 mm, flere lengder" },
+    { k: "Funksjoner", v: "Muting, reset og blanking innebygd" }
+  ],
+  "Inxpect sikkerhetsradar": [
+    { k: "Sertifisering", v: "IEC TS 61496-5, PL d / SIL 2" },
+    { k: "Deteksjon", v: "3D volumetrisk sone, opptil 9 m" },
+    { k: "Miljø", v: "Immun mot lys, støv, spon, røyk og væske" },
+    { k: "Buss", v: "PROFIsafe, FSoE, CIP Safety, MODBUS" }
+  ],
+  "QUICK-GUARD grindsystem": [
+    { k: "Materiale", v: "Aluminiumsprofil med netting eller plate" },
+    { k: "Tilpasning", v: "Kappes og monteres etter anleggets mål" },
+    { k: "Integrasjon", v: "Braketter for dørbrytere og lysgitter" }
+  ],
+  "SE2L laserscanner": [
+    { k: "Rekkevidde", v: "20 m deteksjon / 5 m sikkerhetssone" },
+    { k: "Soner", v: "Delbart deteksjonsområde, master/slave" },
+    { k: "Ytelsesnivå", v: "PL d / SIL 2" }
+  ]
+};
