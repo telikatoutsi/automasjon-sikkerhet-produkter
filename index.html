@@ -44,7 +44,8 @@
   </header>
 
   <section class="hero">
-    <div class="hero__glow" aria-hidden="true"></div>
+    <img class="hero__bg" src="images/hero-robotcelle.jpg" alt="" fetchpriority="high" decoding="async">
+    <div class="hero__scrim" aria-hidden="true"></div>
     <div class="container hero__grid">
       <div class="hero__copy">
         <span class="eyebrow">Produktkatalog</span>
@@ -97,19 +98,28 @@
           <p class="radar__text radar__text--last">200-serien er sertifisert etter IEC TS 61496-5. Vi prosjekterer sonene og setter anlegget i drift.</p>
           <a class="btn btn--outline-light" href="https://www.inxpect.com/en/products/" target="_blank" rel="noopener">Se radarsensorene</a>
         </div>
-        <div class="stats">
-          <div class="stat"><div class="figure">IEC TS 61496-5</div><div class="label">Sertifisert sikkerhetsradar</div></div>
-          <div class="stats__row">
-            <div class="stat"><div class="figure">3D</div><div class="label">Sikkerhetssone</div></div>
-            <div class="stat"><div class="figure">360°</div><div class="label">Dekning rundt maskin</div></div>
-          </div>
-        </div>
+        <figure class="radar__photo">
+          <img src="images/radar-anlegg.jpg" alt="Industrianlegg med radarovervåket sone" loading="lazy" decoding="async">
+          <figcaption class="radar__photo-cap"><span class="figure">IEC TS 61496-5</span><span class="label">Sertifisert sikkerhetsradar</span></figcaption>
+        </figure>
       </div>
       <div class="immune">
-        <div class="immune__item"><div class="immune__title">Immun mot lys</div><p class="immune__text">Sveiselys og refleks påvirker ikke deteksjonen.</p></div>
-        <div class="immune__item"><div class="immune__title">Immun mot spon</div><p class="immune__text">Støv og flygende spon gir ikke falske stopp.</p></div>
-        <div class="immune__item"><div class="immune__title">Immun mot røyk</div><p class="immune__text">Radaren ser gjennom røyk og damp i sonen.</p></div>
-        <div class="immune__item"><div class="immune__title">Immun mot væske</div><p class="immune__text">Kjølevæske og vannsprut stopper ikke driften.</p></div>
+        <figure class="immune__item">
+          <img class="immune__img" src="images/immun-lys.jpg" alt="Immun mot lys" loading="lazy" decoding="async">
+          <figcaption class="immune__cap"><div class="immune__title">Immun mot lys</div><p class="immune__text">Sveiselys og refleks påvirker ikke deteksjonen.</p></figcaption>
+        </figure>
+        <figure class="immune__item">
+          <img class="immune__img" src="images/immun-spon.jpg" alt="Immun mot spon" loading="lazy" decoding="async">
+          <figcaption class="immune__cap"><div class="immune__title">Immun mot spon</div><p class="immune__text">Støv og flygende spon gir ikke falske stopp.</p></figcaption>
+        </figure>
+        <figure class="immune__item">
+          <img class="immune__img" src="images/immun-royk.jpg" alt="Immun mot røyk" loading="lazy" decoding="async">
+          <figcaption class="immune__cap"><div class="immune__title">Immun mot røyk</div><p class="immune__text">Radaren ser gjennom røyk og damp i sonen.</p></figcaption>
+        </figure>
+        <figure class="immune__item">
+          <img class="immune__img" src="images/immun-vaeske.jpg" alt="Immun mot væske" loading="lazy" decoding="async">
+          <figcaption class="immune__cap"><div class="immune__title">Immun mot væske</div><p class="immune__text">Kjølevæske og vannsprut stopper ikke driften.</p></figcaption>
+        </figure>
       </div>
     </div>
   </section>
